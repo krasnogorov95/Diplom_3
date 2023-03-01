@@ -1,5 +1,6 @@
-package pom;
+package ui.pom;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,6 +11,8 @@ public class ForgotPasswordPage {
     public ForgotPasswordPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    @Step("Click Log in button on forgot password page")
     public void clickLogInButton() {
         driver.findElement(logInButton).click();
     }

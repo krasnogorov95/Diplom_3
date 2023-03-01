@@ -1,5 +1,6 @@
-package pom;
+package ui.pom;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,22 +16,34 @@ public class SignUpPage {
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    @Step("Enter in name field on sign up page")
     public void inputNameField(String name) {
         driver.findElement(nameField).sendKeys(name);
     }
+
+    @Step("Enter in email field on sign up page")
     public void inputEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
+
+    @Step("Enter in password field on sign up page")
     public void inputPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
+
+    @Step("Click Sign up button on sign up page")
     public void clickSignUpButton() {
         driver.findElement(signUpButton).click();
     }
+
+    @Step("Click Log in button on sign up page")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public boolean checkErrorPasswordIsDisplayed(){
+
+    @Step("Check error password is displayed")
+    public boolean checkErrorPasswordIsDisplayed() {
         return driver.findElement(errorPasswordLabel).isDisplayed();
     }
 }

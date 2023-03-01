@@ -1,16 +1,20 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import pom.AccountPage;
-import pom.Header;
-import pom.LoginPage;
-import pom.MainPage;
+import ui.BrowserRule;
+import ui.UserGenerator;
+import ui.pom.AccountPage;
+import ui.pom.Header;
+import ui.pom.LoginPage;
+import ui.pom.MainPage;
 
 public class RedirectTest {
     @Rule
     public BrowserRule browserRule = new BrowserRule();
 
     @Test
+    @DisplayName("Account button redirects to account page")
     public void accountButtonRedirectToAccountPage() {
         Header header = new Header(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
@@ -26,10 +30,10 @@ public class RedirectTest {
     }
 
     @Test
+    @DisplayName("Logo redirects to main page")
     public void logoRedirectToMainPage() {
         Header header = new Header(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
-        AccountPage accountPage = new AccountPage(browserRule.getDriver());
         MainPage mainPage = new MainPage(browserRule.getDriver());
         UserGenerator defaultUser = new UserGenerator();
         header.clickAccountHeaderButton();
@@ -43,10 +47,10 @@ public class RedirectTest {
     }
 
     @Test
+    @DisplayName("Constructor button redirects to main page")
     public void constructorButtonRedirectToMainPage() {
         Header header = new Header(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
-        AccountPage accountPage = new AccountPage(browserRule.getDriver());
         MainPage mainPage = new MainPage(browserRule.getDriver());
         UserGenerator defaultUser = new UserGenerator();
         header.clickAccountHeaderButton();

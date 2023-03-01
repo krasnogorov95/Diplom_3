@@ -1,13 +1,17 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import pom.*;
+import ui.BrowserRule;
+import ui.UserGenerator;
+import ui.pom.*;
 
 public class LoginTest {
     @Rule
     public BrowserRule browserRule = new BrowserRule();
 
     @Test
+    @DisplayName("Log in from main page successfully")
     public void logInFromMainPageSuccessfully() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
@@ -21,6 +25,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Log in from header successfully")
     public void logInFromHeaderSuccessfully() {
         Header header = new Header(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
@@ -35,6 +40,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Log in from sigh up page successfully")
     public void logInFromSignUpPageSuccessfully() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
@@ -51,6 +57,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Log in from forgot password page successfully")
     public void logInFromForgotPasswordPageSuccessfully() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
@@ -67,7 +74,8 @@ public class LoginTest {
     }
 
     @Test
-    public void logOutSuccessfully() {
+    @DisplayName("Logout successfully")
+    public void logoutSuccessfully() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         LoginPage loginPage = new LoginPage(browserRule.getDriver());
         Header header = new Header(browserRule.getDriver());
@@ -78,7 +86,7 @@ public class LoginTest {
         loginPage.inputPasswordField(defaultUser.getPassword());
         loginPage.clickEnterButton();
         header.clickAccountHeaderButton();
-        accountPage.clickLogOutButton();
+        accountPage.clickLogoutButton();
         boolean actualResult = loginPage.checkCreationSuccessfully();
         Assert.assertTrue("Пользователь должен разлогиниться", actualResult);
     }

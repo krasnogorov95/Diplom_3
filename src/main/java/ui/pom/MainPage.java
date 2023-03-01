@@ -1,5 +1,6 @@
-package pom;
+package ui.pom;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,28 +18,44 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void clickLoginButton(){
+
+    @Step("Click Log in button on main page")
+    public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public boolean checkRedirectSuccessfully(){
+
+    @Step("Check redirect to main page successfully")
+    public boolean checkRedirectSuccessfully() {
         return driver.findElement(createOrderButton).isDisplayed();
     }
-    public void clickSaucesConstructor(){
+
+    @Step("Click Sauces in constructor")
+    public void clickSaucesConstructor() {
         driver.findElement(saucesUnselectedConstructor).click();
     }
-    public void clickFillingConstructor(){
+
+    @Step("Click Filling in constructor")
+    public void clickFillingConstructor() {
         driver.findElement(fillingUnselectedConstructor).click();
     }
-    public void clickBunsConstructor(){
+
+    @Step("Click Buns in constructor")
+    public void clickBunsConstructor() {
         driver.findElement(bunsUnselectedConstructor).click();
     }
-    public boolean checkSelectedSaucesConstructorIsDisplayed(){
+
+    @Step("Check Sauces in constructor is selected")
+    public boolean checkSelectedSaucesConstructorIsDisplayed() {
         return driver.findElement(saucesSelectedConstructor).isDisplayed();
     }
-    public boolean checkSelectedFillingConstructorIsDisplayed(){
+
+    @Step("Check Filling in constructor is selected")
+    public boolean checkSelectedFillingConstructorIsDisplayed() {
         return driver.findElement(fillingSelectedConstructor).isDisplayed();
     }
-    public boolean checkSelectedBunsConstructorIsDisplayed(){
+
+    @Step("Check Buns in constructor is selected")
+    public boolean checkSelectedBunsConstructorIsDisplayed() {
         return driver.findElement(bunsSelectedConstructor).isDisplayed();
     }
 }

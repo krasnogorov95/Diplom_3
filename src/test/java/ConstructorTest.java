@@ -1,13 +1,16 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import pom.MainPage;
+import ui.BrowserRule;
+import ui.pom.MainPage;
 
 public class ConstructorTest {
     @Rule
     public BrowserRule browserRule = new BrowserRule();
 
     @Test
+    @DisplayName("Select Sauces in burger's constructor change constructor's section")
     public void selectSaucesConstructorChangeSection() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         mainPage.clickSaucesConstructor();
@@ -16,6 +19,7 @@ public class ConstructorTest {
     }
 
     @Test
+    @DisplayName("Select Filling in burger's constructor change constructor's section")
     public void selectFillingConstructorChangeSection() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         mainPage.clickFillingConstructor();
@@ -24,6 +28,7 @@ public class ConstructorTest {
     }
 
     @Test
+    @DisplayName("Select Buns in burger's constructor change constructor's section")
     public void selectBunsConstructorChangeSection() {
         MainPage mainPage = new MainPage(browserRule.getDriver());
         mainPage.clickFillingConstructor();
